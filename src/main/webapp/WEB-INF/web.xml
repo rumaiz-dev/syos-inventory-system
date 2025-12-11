@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <display-name>SYOS System</display-name>
+    <servlet>
+        <servlet-name>BillingServlet</servlet-name>
+        <servlet-class>com.syos.presentation.BillingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BillingServlet</servlet-name>
+        <url-pattern>/billing/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>InventoryServlet</servlet-name>
+        <servlet-class>com.syos.presentation.InventoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InventoryServlet</servlet-name>
+        <url-pattern>/inventory/*</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ReportServlet</servlet-name>
+        <servlet-class>com.syos.presentation.ReportServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReportServlet</servlet-name>
+        <url-pattern>/reports/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Auth Servlet for web authentication -->
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>com.syos.presentation.AuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <!-- Product Web Servlet -->
+    <servlet>
+        <servlet-name>ProductWebServlet</servlet-name>
+        <servlet-class>com.syos.presentation.ProductWebServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductWebServlet</servlet-name>
+        <url-pattern>/admin/products/*</url-pattern>
+    </servlet-mapping>
+
+
+
+    <!-- JSP Configuration -->
+    <servlet>
+        <servlet-name>jsp</servlet-name>
+        <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+        <init-param>
+            <param-name>fork</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <param-name>xpoweredBy</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>jsp</servlet-name>
+        <url-pattern>*.jsp</url-pattern>
+    </servlet-mapping>
+
+    <!-- Session Configuration -->
+    <session-config>
+        <session-timeout>30</session-timeout> <!-- 30 minutes -->
+    </session-config>
+
+    <!-- Welcome File -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <!-- Error Pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/jsp/error/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/jsp/error/500.jsp</location>
+    </error-page>
+
+</web-app>
