@@ -1,4 +1,4 @@
-package com.syos.infrastructure.util;
+package com.syos.util;
 
 import com.syos.domain.exception.ValidationException;
 
